@@ -1,108 +1,183 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>المرآة المزدوجة — اللعبة</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ليو وسحر الأرقام</title>
+
+<style>
+body {
+  font-family: 'Cairo', sans-serif;
+  margin: 0;
+  background: #f5f7fa;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+h1 {
+  color: #2c3e50;
+}
+
+.hero img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.price {
+  font-size: 28px;
+  margin: 15px 0;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: red;
+  margin-left: 10px;
+}
+
+.new-price {
+  color: green;
+  font-weight: bold;
+}
+
+.timer {
+  font-size: 22px;
+  color: #e74c3c;
+  margin: 20px 0;
+}
+
+.features {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  text-align: right;
+}
+
+.features li {
+  margin: 10px 0;
+}
+
+.testimonials {
+  margin-top: 30px;
+}
+
+.testimonial {
+  background: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+.buy-btn {
+  display: inline-block;
+  background: #27ae60;
+  color: white;
+  padding: 15px 30px;
+  font-size: 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.buy-btn:hover {
+  background: #219150;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 24px;
+  }
+}
+</style>
 </head>
+
 <body>
-  <div id="app">
-    <!-- شاشة القائمة الرئيسية -->
-    <section id="menu" class="screen active">
-      <h1 class="title">المرآة المزدوجة</h1>
-      <p class="subtitle">رواية تفاعلية — 50 اختيار، 15 لغز، 6 نهايات</p>
-      <div class="menu-actions">
-        <button id="startBtn" class="btn primary">بدء اللعبة</button>
-        <button id="continueBtn" class="btn" disabled>استكمال</button>
-        <button id="settingsBtn" class="btn">الإعدادات</button>
-        <button id="helpBtn" class="btn">تعليمات</button>
-      </div>
-      <div class="meta">حفظ التقدم محلياً في المتصفح</div>
-    </section>
 
-    <!-- شاشة اللعبة -->
-    <section id="game" class="screen">
-      <header class="game-header">
-        <div class="left">
-          <button id="backToMenu" class="btn small secondary">القائمة</button>
-        </div>
-        <div class="center">
-          <div id="chapterTitle">الفصل 1</div>
-        </div>
-        <div class="right">
-          <button id="openLog" class="btn small">سجل</button>
-          <button id="openSettings" class="btn small">إعدادات</button>
-        </div>
-      </header>
+<div class="container">
 
-      <main class="game-body">
-        <article class="scene card">
-          <div id="sceneText" class="scene-text"></div>
-          <div id="puzzleArea" class="puzzle-area"></div>
-          <div id="choices" class="choices"></div>
-        </article>
+  <!-- العنوان -->
+  <h1>📚 قصة ليو وسحر الأرقام</h1>
 
-        <aside class="sidebar card">
-          <div class="status">
-            <div>خيارات متخذة: <span id="choiceCount">0</span></div>
-            <div>ألغاز محلولة: <span id="solvedCount">0</span></div>
-            <div>المسار: <span id="pathTag">—</span></div>
-          </div>
-          <div class="log-box">
-            <div class="log-title">سجل اللعب</div>
-            <div id="log" class="log"></div>
-            <div class="log-actions">
-              <button id="saveBtn" class="btn small">حفظ</button>
-              <button id="loadBtn" class="btn small">تحميل</button>
-              <button id="clearBtn" class="btn small secondary">مسح السجل</button>
-            </div>
-          </div>
-          <div class="hint" id="hint"></div>
-        </aside>
-      </main>
+  <!-- الصورة -->
+  <div class="hero">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFVQmgxhwnCIu0_41HeWkZ27FEjxc9jmmss59uzQgppP_wLRsd4HJbHPqjADXhCSsZGuZk_6VEOUnFc1nlOr7f5XkZlJmTbYNaW8AvYlHkP2VShsZ3bRUa1sbah2P5gBZ1Oue8O8RbNhGi5dwstENyAAtmEBg9w9qSian_fdNeYungP4MqZ__KogJnDTNY/s1024/file_0000000016b071fd82f0ba4653409ea4.png">
+  </div>
 
-      <footer class="game-footer">
-        <div class="footer-left">نسخة: كاملة</div>
-        <div class="footer-right">6 نهايات متاحة</div>
-      </footer>
-    </section>
+  <!-- السعر -->
+  <div class="price">
+    <span class="old-price">2$</span>
+    <span class="new-price">1$ فقط 🔥</span>
+  </div>
 
-    <!-- شاشة النهايات -->
-    <section id="ending" class="screen">
-      <h2 id="endingTitle">النهاية</h2>
-      <p id="endingText"></p>
-      <div class="ending-actions">
-        <button id="restartBtn" class="btn primary">إعادة اللعب</button>
-        <button id="menuBtn" class="btn">القائمة الرئيسية</button>
-      </div>
-    </section>
+  <!-- العداد -->
+  <div class="timer">
+    ⏳ ينتهي العرض خلال: <span id="countdown"></span>
+  </div>
 
-    <!-- شاشة الإعدادات (مودال) -->
-    <div id="settingsModal" class="modal">
-      <div class="modal-card">
-        <h3>الإعدادات</h3>
-        <label>الصوت: <input id="volumeRange" type="range" min="0" max="1" step="0.1" value="0.8"></label>
-        <label>نمط الكتابة: <select id="fontSelect"><option value="arabic">عربي</option></select></label>
-        <div class="modal-actions">
-          <button id="closeSettings" class="btn">إغلاق</button>
-        </div>
-      </div>
+  <!-- المميزات -->
+  <div class="features">
+    <h2>✨ مميزات القصة:</h2>
+    <ul>
+      <li>📖 قصة ممتعة ومشوقة للأطفال</li>
+      <li>🔤 تساعد على تعلم اللغة الإنجليزية بسهولة</li>
+      <li>🧠 تنمي الذكاء والتفكير</li>
+      <li>🌟 تغرس القيم والمبادئ الجميلة</li>
+      <li>🎨 تحتوي على صور جذابة للأطفال</li>
+    </ul>
+  </div>
+
+  <!-- زر الشراء -->
+  <a href="https://mega4upload.net/znzmu2piu732" class="buy-btn">
+    🛒 اشتري الآن
+  </a>
+
+  <!-- التقييمات -->
+  <div class="testimonials">
+    <h2>⭐ آراء أولياء الأمور:</h2>
+
+    <div class="testimonial">
+      "قصة رائعة! ابني أصبح يحب تعلم الإنجليزية ❤️"
     </div>
 
-    <!-- شاشة التعليمات (مودال) -->
-    <div id="helpModal" class="modal">
-      <div class="modal-card">
-        <h3>تعليمات</h3>
-        <p>هذه لعبة اختيارات ونهايات متعددة. كل اختيار يؤثر على المسار. الألغاز تحتاج إدخال كلمات أو أرقام. يمكنك حفظ التقدم محلياً.</p>
-        <div class="modal-actions">
-          <button id="closeHelp" class="btn">إغلاق</button>
-        </div>
-      </div>
+    <div class="testimonial">
+      "ممتعة وتعليمية في نفس الوقت، أنصح بها بشدة!"
+    </div>
+
+    <div class="testimonial">
+      "أفضل قصة اشتريتها لطفلي 👏"
     </div>
 
   </div>
 
-  <script src="game.js"></script>
+</div>
+
+<!-- سكريبت العداد -->
+<script>
+var countDownDate = new Date().getTime() + (24 * 60 * 60 * 1000); // 24 ساعة
+
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+    hours + " ساعة " + minutes + " دقيقة " + seconds + " ثانية ";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "انتهى العرض!";
+  }
+}, 1000);
+</script>
+
 </body>
 </html>
